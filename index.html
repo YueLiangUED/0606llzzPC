@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="css/reset.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>流量转赠</title>
+</head>
+<body>
+    <div class="llmain">
+        <div class="zz-title">
+            <h3>流量转赠</h3>
+        </div>
+        <div class="zz-banner">
+            <div class="querytxt">
+                <a href="queryzz.html">查询转赠记录>></a>
+            </div>
+            <div class="zz-input">
+                <div class="zz-input-title">填写转赠信息</div>
+                <div class="zz-input-group">
+                    <i class="icon icon-person"></i><input id="telnum" type="text" placeholder="请输入被赠送人手机号">
+                </div>
+                <div class="yz-box">
+                    <p id="telw-tip"><i class="icon-tan"></i><span>请正确输入11位北京移动号码</span></p>
+                </div>
+                <div class="zz-input-group noMarginTop">
+                    <i class="icon icon-gold"></i><input id="llnum" type="text" placeholder="大于等于100的整数"><span class="MB">MB</span>
+                </div>
+                <div class="yz-box">
+                    <p id="llw-tip"><i class="icon-tan"></i><span>请正确输入转赠数量大于等于100的整数</span></p>
+                </div>
+                <div class="zz-input-enter">
+                    <a href="javascript:;" class="enter-btn">提交</a>
+                </div>
+            </div>
+        </div>
+        <!--页签切换-->
+        <div class="ex-tab">
+            <!--页签切换按钮-->
+            <ul class="tab-nav">
+                <li class="act">产品介绍</li>
+                <li>资费标准</li>
+                <li class="noBoderRight">办理方式</li>
+            </ul>
+            <div class="tab-content">
+                <!--产品介绍页签-->
+                <div class="tab-item">
+                    <p>1、订购了同学圈的客户，在号码状态正常的情况下，可以发起流量转赠；接受转赠的客户也必须订购同学圈业务。</p>
+                    <p>2、为了保证用户的正常使用，转赠流量（必须是整数）从<span class="font-red">100</span>M起，且当前剩余流量比赠送流量多50M。</p>
+                    <p>3、目前仅限套餐内的国内流量和本地流量可以赠送，转赠后的流量统一为本地流量，仅限当月有效，不可结转与分享。</p>
+                    <p>4、每月最多转赠4次，转赠流量总额不超过5GB。</p>
+                    <p>5、转赠成功后，受赠用户优先使用转赠流量。</p>
+                </div>
+                <!--资费标准页签-->
+                <div class="tab-item none">
+                    <p>促销期内免费使用。</p>
+                </div>
+                <!--办理方式页签-->
+                <div class="tab-item none">
+                    <p>在门户网站和微厅进行办理，符合转赠条件的用户输入正确的手机号和转赠流量，即可完成转赠。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mask" id="mask"></div>
+
+    <!--弹出层 根据相应状态弹出相应的pop-->
+    <!--转赠成功弹出层-->
+    <div class="pop none">
+        <div class="pop-title">提示</div>
+        <div class="pop-content">
+            <p><span class="icon-dui"></span></p>
+            <p class="pop-tip">流量转赠成功！</p>
+            <p class="pop-enter"><a href="javascript:;">确定</a></p>
+        </div>
+        <div class="pop-close"></div>
+    </div>
+    <!-- A国内和本地流量产品资源余额>50MB-->
+    <div class="pop none">
+        <div class="pop-title">提示</div>
+        <div class="pop-content">
+            <p><span class="icon-wrong"></span></p>
+            <p class="pop-tip wrong">流量余额不足，无法转赠</p>
+            <p class="pop-enter"><a href="javascript:;">确定</a></p>
+        </div>
+        <div class="pop-close"></div>
+    </div>
+    <!--A未订购朋友圈业务-->
+    <div class="pop none">
+        <div class="pop-title">提示</div>
+        <div class="pop-content">
+            <p><span class="icon-wrong"></span></p>
+            <p class="pop-tip wrong">该功能仅向开通同学圈的客户提供，感谢您的关注。</p>
+            <p class="pop-enter"><a href="javascript:;">确定</a></p>
+        </div>
+        <div class="pop-close"></div>
+    </div>
+     <!--B非北京移动用户-->
+    <div class="pop none">
+        <div class="pop-title">提示</div>
+        <div class="pop-content">
+            <p><span class="icon-wrong"></span></p>
+            <p class="pop-tip wrong">转赠的号码不是北京移动客户，请输入已订购同学圈业务的北京移动手机号码。</p>
+            <p class="pop-enter"><a href="javascript:;">确定</a></p>
+        </div>
+        <div class="pop-close"></div>
+    </div>
+    <!--B没有订购同学圈业务-->
+    <div class="pop none">
+        <div class="pop-title">提示</div>
+        <div class="pop-content">
+            <p><span class="icon-wrong"></span></p>
+            <p class="pop-tip wrong">你要转赠的客户没有订购同学圈，请输入已订购同学圈业务的北京移动手机号码</p>
+            <p class="pop-enter"><a href="javascript:;">确定</a></p>
+        </div>
+        <div class="pop-close"></div>
+    </div>
+     <!--B号码停机状态-->
+     <div class="pop none">
+        <div class="pop-title">提示</div>
+        <div class="pop-content">
+            <p><span class="icon-wrong"></span></p>
+            <p class="pop-tip wrong">对方号码状态不正常，无法转赠</p>
+            <p class="pop-enter"><a href="javascript:;">确定</a></p>
+        </div>
+        <div class="pop-close"></div>
+    </div>
+    <!--A转赠次数需要<=4次-->
+    <div class="pop none">
+        <div class="pop-title">提示</div>
+        <div class="pop-content">
+            <p><span class="icon-wrong"></span></p>
+            <p class="pop-tip wrong">本月转赠次数已达4次，下月再继续</p>
+            <p class="pop-enter"><a href="javascript:;">确定</a></p>
+        </div>
+        <div class="pop-close"></div>
+    </div>
+    <!--A已经转赠出了5GB（国内和本地通用流量合计），不能再转赠-->
+    <div class="pop none">
+        <div class="pop-title">提示</div>
+        <div class="pop-content">
+            <p><span class="icon-wrong"></span></p>
+            <p class="pop-tip wrong">本月转赠流量已达5GB，下月再继续</p>
+            <p class="pop-enter"><a href="javascript:;">确定</a></p>
+        </div>
+        <div class="pop-close"></div>
+    </div>
+
+    <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
